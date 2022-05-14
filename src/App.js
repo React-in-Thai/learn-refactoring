@@ -1,6 +1,7 @@
+import React from "react";
 import LZString from "lz-string";
+import Highlight, { defaultProps } from "prism-react-renderer";
 import getDemoConfig from "./deprecated/getDemoConfig";
-import "./App.css";
 
 function compress(object) {
   return LZString.compressToBase64(JSON.stringify(object))
@@ -17,14 +18,7 @@ function addHiddenInput(form, name, value) {
   form.appendChild(input);
 }
 
-function App() {
-  const codeVariant = "JS"; // 'JS' | 'TS'
-  const demoData = {
-    title: "A demo",
-    githubLocation: "",
-    language: "en",
-    codeVariant,
-    raw: `import * as React from 'react';
+const jsCode = `import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
@@ -36,8 +30,35 @@ export default function BasicButtons() {
       <Button variant="outlined">Outlined</Button>
     </Stack>
   );
-}
-`,
+}`;
+
+const tsCode = `import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+export default function BasicButtons(): React.ReactElement {
+  return (
+    <Stack spacing={2} direction="row">
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+    </Stack>
+  );
+}`;
+
+const CODE = {
+  JS: jsCode,
+  TS: tsCode,
+};
+
+function App() {
+  const [codeVariant, setCodeVariant] = React.useState("JS");
+  const demoData = {
+    title: "A demo",
+    githubLocation: "",
+    language: "en",
+    codeVariant,
+    raw: CODE[codeVariant],
   };
   const handleCodeSandboxClick = () => {
     const demoConfig = getDemoConfig(demoData);
@@ -116,9 +137,51 @@ export default function BasicButtons() {
     document.body.removeChild(form);
   };
   return (
-    <div className="App">
-      <button onClick={handleCodeSandboxClick}>CodeSandbox</button>
-      <button onClick={handleStackBlitzClick}>StackBlitz</button>
+    <div className="max-w-screen-lg mx-auto min-h-[100vh] py-10 px-2">
+      <h1 className="text-2xl font-bold mb-4">{demoData.title}</h1>
+      <Highlight {...defaultProps} code={demoData.raw} language="jsx">
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+      <div className="flex justify-between gap-2 py-4">
+        <div className="flex gap-2">
+          <button
+            aria-pressed={codeVariant === "JS"}
+            onClick={() => setCodeVariant("JS")}
+            className={
+              codeVariant === "JS"
+                ? "bg-blue-700 text-white hover:bg-blue-600"
+                : ""
+            }
+          >
+            JS
+          </button>
+          <button
+            aria-pressed={codeVariant === "TS"}
+            onClick={() => setCodeVariant("TS")}
+            className={
+              codeVariant === "TS"
+                ? "bg-blue-700 text-white hover:bg-blue-600"
+                : ""
+            }
+          >
+            TS
+          </button>
+        </div>
+        <div className="flex gap-2">
+          <button onClick={handleCodeSandboxClick}>CodeSandbox</button>
+          <button onClick={handleStackBlitzClick}>StackBlitz</button>
+        </div>
+      </div>
     </div>
   );
 }
