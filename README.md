@@ -16,8 +16,7 @@
 
 จะได้หน้าจอแบบนี้ขึ้นมา
 
-<!-- image -->
-<img width="1202" alt="Screen Shot 2565-05-12 at 09 48 23" src="https://user-images.githubusercontent.com/18292247/168407410-496ddbcb-7a6c-4053-ad0f-452d626c43a4.png">
+<img width="1094" alt="Screen Shot 2565-05-14 at 21 29 36" src="https://user-images.githubusercontent.com/18292247/168430061-b9c10a1d-2831-4f05-b694-315ff8eae632.png">
 
 ## How to practice
 
@@ -45,7 +44,7 @@
 
 เมื่อกดปุ่ม StackBlitz จะเห็นว่า demo ไม่สามารถทำงานได้
 
-https://user-images.githubusercontent.com/18292247/168408004-b2dc0071-146b-4b09-8d20-2bb6106d2f52.mov
+https://user-images.githubusercontent.com/18292247/168430133-8f3f5f06-65dc-4997-b5b2-549eadcc6899.mov
 
 **Requirement**
 
@@ -53,6 +52,12 @@ https://user-images.githubusercontent.com/18292247/168408004-b2dc0071-146b-4b09-
 
 ### 2. Multiple products
 
+โค้ดตัวอย่างที่เห็นอยู่นั้นเป็น demo ของ Material UI ซึ่งเป็นหนึ่งในไลบรารี่ที่เรามี ทางบริษัทต้องการเพิ่มไลบรารี่ให้มากขึ้นโดยแต่ละไลบรารี่จะต้องมีไฟล์ template ที่แตกต่างกัน หากเปิดดูโค้ดที่อยู่ในไฟล์ `getDemoConfig.js` จะเห็นว่าฟังก์ชัน `tsDemo()` และ `jsDemo()` มี config เกี่ยวกับไฟล์ `index.js` ด้วยซึ่งเป็นส่วนหนึ่งของ template.
 
+ไฟล์ `src/challenges/templates.js` มีโค้ดตัวอย่างของอีกหนึ่งไลบรารี่ที่ชื่อ Joy UI.
+
+โจทย์คือให้ refactor โค้ด เพื่อนำ Joy UI มาแสดงเป็น demo และเปิด CodeSandbox กับ StackBlitz ได้ถูกต้อง
+
+> ในอนาคตจะมีไลบรารี่เพิ่มขึ้นอีกแน่นอน ฉะนั้นให้คำนึงถึงเรื่องนี้ตอน refactor โค้ดด้วย
 
 
