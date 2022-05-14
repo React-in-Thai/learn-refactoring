@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Learn refatoring
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+👋 สวัสดี, repo นี้จะเป็นการฝึก refactor โค้ดคับ เหมาะทั้ง frontend และ backend engineer เลย
 
-## Available Scripts
+- เขียน javascript พอได้
+- ไม่จำเป็นต้องมีความรู้ React 
+- ไม่จำเป็นต้องมีความรู้ CSS
 
-In the project directory, you can run:
+## Introduction
 
-### `yarn start`
+ผมตั้งใจสร้าง repo นี้ขึ้นมาเนื่องจากเป็นโค้ดที่ผ่านการใช้งานมาจริงๆ และเป็น business requirement ที่เกิดขึ้นจริง เหมาะสำหรับการฝึกฝนมากๆ หวังว่าจะเป็นประโยชน์กับทุกๆท่านที่ผ่านมาเห็นนะครับ
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+โค้ดทั้งหมดผมได้มาจาก [MUI repository](https://github.com/mui/material-ui/blob/master/docs/src/modules/utils/getDemoConfig.js)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+หลังจาก clone โปรเจคแล้วลองรัน `yarn && yarn start`
 
-### `yarn test`
+จะได้หน้าจอแบบนี้ขึ้นมา
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- image -->
+<img width="1202" alt="Screen Shot 2565-05-12 at 09 48 23" src="https://user-images.githubusercontent.com/18292247/168407410-496ddbcb-7a6c-4053-ad0f-452d626c43a4.png">
 
-### `yarn build`
+## How to practice
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+เพื่อให้เสมือนจริงมากที่สุด ให้เริ่มทำความเข้าใจโค้ดเองทั้งหมดว่า application นี้เกี่ยวกับอะไร ทำงานอย่างไร จากนั้นให้อ่าน [Challenges](#challenges) แล้วเริ่มลงมือทำ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ถ้าไม่เข้าใจจริงๆ ให้อ่าน hint ได้
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+  
+  <summary>💡 hint</summary>
+  
+  Application นี้เป็นเว็บไซต์สำหรับนักพัฒนาเพื่อเข้ามาดูโค้ดตัวอย่างแล้วนำไปใช้ ในกรณีที่ต้องการทดสอบโค้ดตัวอย่างสามารถเลือกเปิด interactive demo ได้สองแบบผ่าน [CodeSandbox](https://codesandbox.io/) หรือ [StackBlitz](https://stackblitz.com/).
 
-### `yarn eject`
+  **การทำงาน**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - การทำงานทั้งหมดจะเริ่มจากไฟล์ `src/App.js` เมื่อ user กดปุ่ม ข้อมูลจะถูกประมวลผลให้อยู่ในรูปแบบที่ CodeSandbox หรือ StackBlitz ต้องการ
+  - ข้อมูลนั้นจะนำมาใช้ในการเรียก API เพื่อสร้าง sandbox
+    - [CodeSanbox API](https://codesandbox.io/docs/api/#define-api)
+    - [StackBlitz API](https://developer.stackblitz.com/docs/platform/post-api/)
+</details>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Challenges
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Bug fix
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+เมื่อกดปุ่ม StackBlitz จะเห็นว่า demo ไม่สามารถทำงานได้
 
-## Learn More
+https://user-images.githubusercontent.com/18292247/168408004-b2dc0071-146b-4b09-8d20-2bb6106d2f52.mov
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Requirement**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ให้เพิ่ม `@babel/runtime` เข้าไปใน dependencies ของ StackBlitz เท่านั้น เมื่อกดปุ่ม StackBlitz จะต้องเห็น demo ที่ทำงานได้ถูกต้องทันที
 
-### Code Splitting
+### 2. Multiple products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
