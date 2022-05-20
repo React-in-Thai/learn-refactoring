@@ -108,7 +108,7 @@ export function getDependencies(raw, options = {}) {
     "react-dom": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
-    "@mui/material": getMuiPackageVersion("material", muiCommitRef),
+    "@mui/material": "5.7.0",
     "@mui/icons-material": getMuiPackageVersion("icons-material", muiCommitRef),
     "@mui/lab": getMuiPackageVersion("lab", muiCommitRef),
     "@mui/styled-engine": getMuiPackageVersion("styled-engine", muiCommitRef),
